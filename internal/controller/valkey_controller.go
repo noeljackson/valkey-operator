@@ -908,7 +908,7 @@ func (r *ValkeyReconciler) setClusterAnnounceHostname(ctx context.Context, valke
 			clusterDomain,
 		)
 
-		host := fmt.Sprintf("%s.%s.%s.svc", podName, valkey.Name, valkey.Namespace)
+		host := fmt.Sprintf("%s.%s.%s.svc", podName, headlessSvc, valkey.Namespace)
 		address := fmt.Sprintf("%s:%d", host, ValkeyPort)
 
 		client, err := r.getClient(ctx, valkey, address, true)
